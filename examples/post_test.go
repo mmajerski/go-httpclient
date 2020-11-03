@@ -13,7 +13,7 @@ func TestPost(t *testing.T) {
 	repo := Repository{
 		Name: "testing-repo",
 	}
-	response, err := httpClient.Post("https://api.github.com", nil, repo)
+	response, err := httpClient.Post("https://api.github.com", repo)
 
 	fmt.Println(err)
 	fmt.Println(response)
