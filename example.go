@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 
 	"github.com/userq11/go-httpclient/gohttp"
 )
@@ -30,20 +29,24 @@ func getUrls() {
 		panic(err)
 	}
 
-	fmt.Println(response.StatusCode)
+	// Custom response
+	fmt.Println(response.Status())
+	fmt.Println(response.StatusCode())
+	fmt.Println(response.String())
 
-	bytes, _ := ioutil.ReadAll(response.Body)
-	fmt.Println(string(bytes))
-}
+	// Default http.Response:
+	// response.Body.Close()
 
-func createUser(user User) {
-	response, err := githubHttpClient.Post("https://api.github.com", nil, user)
-	if err != nil {
-		panic(err)
-	}
+	// fmt.Println(response.StatusCode)
 
-	fmt.Println(response.StatusCode)
+	// bytes2, err := ioutil.ReadAll(response.Body)
+	// if err != nil {
+	// 	panic(err)
+	// }
 
-	bytes, _ := ioutil.ReadAll(response.Body)
-	fmt.Println(string(bytes))
+	// var user2 User
+	// if err := json.Unmarshal(bytes, &user); err != nil {
+	// 	panic(err)
+	// }
+	// fmt.Println(user2.FirstName)
 }
