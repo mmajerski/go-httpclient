@@ -10,7 +10,7 @@ func TestGetRequestHeaders(t *testing.T) {
 	commonHeaders := make(http.Header)
 	commonHeaders.Set("Content-Type", "application/json")
 	commonHeaders.Set("User-Agent", "http-client")
-	client.headers = commonHeaders
+	client.builder.headers = commonHeaders
 
 	requestHeaders := make(http.Header)
 	requestHeaders.Set("X-Request-Id", "ASD-123")
