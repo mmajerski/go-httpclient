@@ -13,6 +13,8 @@ var githubHttpClient = getGithubClient()
 func getGithubClient() gohttp.HttpClient {
 	client := gohttp.New()
 
+	client.DisableTimeouts(true)
+
 	commonHeaders := make(http.Header)
 	commonHeaders.Set("Authorization", "Bearer asdjkp12p3o4emp2")
 	client.SetHeaders(commonHeaders)
