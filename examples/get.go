@@ -3,7 +3,7 @@ package examples
 import "fmt"
 
 type Endpoints struct {
-	CurrentUser       string `json:"current_user_url"`
+	CurrentUserUrl    string `json:"current_user_url"`
 	AuthorizationsUrl string `json:"authorizations_url"`
 	RepositoryUrl     string `json:"repository_url"`
 }
