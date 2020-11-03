@@ -9,21 +9,6 @@ import (
 	"strings"
 )
 
-func (c *httpClient) getRequestBody(contentType string, body interface{}) ([]byte, error) {
-	if body == nil {
-		return nil, nil
-	}
-
-	switch strings.ToLower(contentType) {
-	case "application/json":
-		return json.Marshal(body)
-	case "application/xml":
-		return xml.Marshal(body)
-	default:
-		return json.Marshal(body)
-	}
-}
-
 func (c *httpClient) do(method string, url string, headers http.Header, body interface{}) (*http.Response, error) {
 	client := http.Client{}
 
@@ -62,4 +47,19 @@ func (c *httpClient) getRequestHeaders(requestHeaders http.Header) http.Header {
 	}
 
 	return result
+}
+
+func (c *httpClient) getRequestBody(contentType string, body interface{}) ([]byte, error) {
+	if body == nil {
+		return nil, nil
+	}
+
+	switch strings.ToLower(contentType) {
+	case "application/json":
+		return json.Marshal(body)
+	case "application/xml":
+		return xml.Marshal(body)
+	default:
+		return json.Marshal(body)
+	}
 }
