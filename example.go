@@ -1,9 +1,22 @@
-package gohttpclient
+package main
 
-import "github.com/userq11/go-httpclient/gohttp"
+import (
+	"fmt"
+	"io/ioutil"
 
-func example() {
+	"github.com/userq11/go-httpclient/gohttp"
+)
+
+func main() {
 	client := gohttp.New()
 
-	client.Get()
+	response, err := client.Get("https://api.github.com", nil)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(response.StatusCode)
+
+	bytes, _ := ioutil.ReadAll(response.Body)
+	fmt.Println(string(bytes))
 }
