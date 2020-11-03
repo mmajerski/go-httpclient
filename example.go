@@ -29,24 +29,7 @@ func getUrls() {
 		panic(err)
 	}
 
-	// Custom response
 	fmt.Println(response.Status())
 	fmt.Println(response.StatusCode())
 	fmt.Println(response.String())
-
-	// Default http.Response:
-	// response.Body.Close()
-
-	// fmt.Println(response.StatusCode)
-
-	// bytes2, err := ioutil.ReadAll(response.Body)
-	// if err != nil {
-	// 	panic(err)
-	// }
-
-	// var user2 User
-	// if err := json.Unmarshal(bytes, &user); err != nil {
-	// 	panic(err)
-	// }
-	// fmt.Println(user2.FirstName)
 }
